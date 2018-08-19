@@ -73,7 +73,7 @@ while True:
         continue
     wanzai_left, wanzai_top = mouse_x - wanzai_width // 2, mouse_y - \
                               wanzai_height // 2
-    #pygame.time.delay(20) # 延时
+    # pygame.time.delay(20) # 延时
     screen.blit(background_image, (0, 0))
     screen.blit(wanzai, (wanzai_left, wanzai_top))
     for i in range(random.randint(1,5)):
@@ -88,7 +88,8 @@ while True:
         if dian.rect.top > window_height:  # miss a dianchi
             lives -= 1
             dianchi.remove(dian)
-        if lives == 0:
+        if lives < 0:
+            lives = 0
             game_over = True
         if number == 1000:
             game_win = True
